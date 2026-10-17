@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM | راهکارهای هوشمند کسب‌وکار</title>
+<meta name="description" content="AURUM - ارائه راهکارهای جامع مشاوره، تحول دیجیتال و توسعه نرم‌افزار برای سازمان‌های پیشرو">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET & VARIABLES ===== */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Vazirmatn', sans-serif; }
+  :root {
+    --bg:#05080f;
+    --bg-2:#080c15;
+    --bg-3:#0c121c;
+    --card:#0e1520;
+    --card-2:#121a27;
+    --border:rgba(201,169,106,.12);
+    --border-hover:rgba(201,169,106,.35);
+    --gold:#c9a96a;
+    --gold-2:#e0c285;
+    --gold-grad:linear-gradient(135deg,#c9a96a 0%,#e0c285 50%,#d4b574 100%);
+    --text:#f0f2f5;
+    --text-2:#9ca3af;
+    --text-3:#6b7280;
+    --green:#4ade80;
+  }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg); color:var(--text);
+    line-height:1.8; overflow-x:hidden;
+    font-feature-settings:"ss01";
+  }
+  ::selection { background:var(--gold); color:var(--bg); }
+  ::-webkit-scrollbar { width:9px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:#1a1a28; border-radius:5px; }
+  ::-webkit-scrollbar-thumb:hover { background:var(--gold); }
+
+  /* ===== SCROLL PROGRESS ===== */
+  .progress-bar {
+    position:fixed; top:0; right:0; height:3px;
+    background:var(--gold-grad); z-index:9999;
+    width:0%; transition:width .1s;
+    box-shadow:0 0 10px var(--gold);
+  }
+
+  /* ===== UTILITIES ===== */
+  .container { max-width:1320px; margin:auto; padding:0 32px; }
+  .grad-text {
+    background:var(--gold-grad);
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent;
+  }
+  .section-label {
+    display:inline-flex; align-items:center; gap:12px;
+    font-size:12px; font-weight:700; color:var(--gold);
+    letter-spacing:3px; text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  .section-label::before {
+    content:''; width:40px; height:1px; background:var(--gold);
+  }
+  .section-head { margin-bottom:60px; max-width:800px; }
+  .section-head h2 {
+    font-size:44px; font-weight:800; line-height:1.3;
+    letter-spacing:-1px; margin-bottom:20px;
+  }
+  .section-head p {
+    font-size:16px; color:var(--text-2); line-height:1.9;
+  }
+  .reveal {
+    opacity:0; transform:translateY(40px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 32px; border-radius:10px;
+    font-family:inherit; font-size:14px; font-weight:600;
+    cursor:pointer; transition:.3s; border:none;
+    text-decoration:none; letter-spacing:.3px;
+  }
+  .btn-gold {
+    background:var(--gold-grad); color:var(--bg);
+    box-shadow:0 10px 30px rgba(201,169,106,.25);
+  }
+  .btn-gold:hover {
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(201,169,106,.4);
+  }
+  .btn-outline {
+    background:transparent; color:var(--text);
+    border:1px solid var(--border-hover);
+  }
+  .btn-outline:hover {
+    background:rgba(201,169,106,.08);
+    border-color:var(--gold); color:var(--gold);
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position:sticky; top:0; z-index:1000;
+    background:rgba(5,8,15,.85);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid var(--border);
+    transition:.3s;
+  }
+  .top-bar {
+    background:var(--bg-2);
+    border-bottom:1px solid var(--border);
+    font-size:12px; color:var(--text-2);
+    padding:8px 0;
+  }
+  .top-bar-inner {
+    display:flex; justify-content:space-between; align-items:center;
+    max-width:1320px; margin:auto; padding:0 32px;
+  }
+  .top-contact { display:flex; gap:24px; align-items:center; }
+  .top-contact a {
+    color:var(--text-2); text-decoration:none;
+    display:flex; align-items:center; gap:6px; transition:.3s;
+  }
+  .top-contact a:hover { color:var(--gold); }
+  .top-socials { display:flex; gap:14px; }
+  .top-socials a {
+    color:var(--text-3); text-decoration:none; font-size:14px; transition:.3s;
+  }
+  .top-socials a:hover { color:var(--gold); }
+
+  nav {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1320px; margin:auto; gap:40px;
+  }
+  .logo {
+    display:flex; align-items:center; gap:12px;
+    font-size:22px; font-weight:900; color:var(--text);
+    text-decoration:none; letter-spacing:1px;
+  }
+  .logo-mark {
+    width:42px; height:42px; border-radius:10px;
+    background:var(--gold-grad);
+    display:grid; place-items:center;
+    color:var(--bg); font-size:18px; font-weight:900;
+    position:relative;
+  }
+  .logo-mark::after {
+    content:''; position:absolute; inset:-4px;
+    border-radius:12px;
+    background:var(--gold-grad);
+    filter:blur(12px); opacity:.4; z-index:-1;
+  }
+  .logo-sub { font-size:9px; color:var(--text-3); letter-spacing:4px; font-weight:500; margin-top:-2px; }
+
+  .nav-menu { display:flex; gap:36px; align-items:center; }
+  .nav-menu a {
+    color:var(--text-2); text-decoration:none;
+    font-size:14px; font-weight:500; transition:.3s;
+    position:relative; padding:6px 0;
+  }
+  .nav-menu a::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:0; height:2px; background:var(--gold-grad);
+    transition:.3s;
+  }
+  .nav-menu a:hover { color:var(--text); }
+  .nav-menu a:hover::after { width:100%; }
+  .nav-menu a.active { color:var(--gold); }
+  .nav-menu a.active::after { width:100%; }
+
+  .nav-cta { display:flex; gap:12px; align-items:center; }
+  .nav-cta .btn { padding:12px 24px; font-size:13px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    position:relative; overflow:hidden;
+    padding:100px 0 120px;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(201,169,106,.08), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(34,211,238,.05), transparent 40%),
+      var(--bg);
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(201,169,106,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,106,.04) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(circle at center, black 30%, transparent 80%);
+    -webkit-mask-image:radial-gradient(circle at center, black 30%, transparent 80%);
+  }
+  .hero-inner {
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.3fr 1fr;
+    gap:60px; align-items:center;
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 18px; border-radius:30px;
+    background:rgba(201,169,106,.08);
+    border:1px solid rgba(201,169,106,.25);
+    color:var(--gold); font-size:12px; font-weight:600;
+    margin-bottom:30px;
+  }
+  .hero-badge .dot {
+    width:8px; height:8px; border-radius:50%;
+    background:var(--green); box-shadow:0 0 12px var(--green);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:.5; transform:scale(1.3); }
+  }
+  .hero h1 {
+    font-size:56px; font-weight:900; line-height:1.2;
+    letter-spacing:-1.5px; margin-bottom:24px;
+  }
+  .hero h1 .line-2 { display:block; }
+  .hero-sub {
+    font-size:17px; color:var(--text-2);
+    line-height:2; margin-bottom:36px; max-width:560px;
+  }
+  .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:50px; }
+  .hero-stats {
+    display:flex; gap:40px; padding-top:36px;
+    border-top:1px solid var(--border);
+  }
+  .hero-stat b {
+    display:block; font-size:32px; font-weight:800;
+    color:var(--gold); margin-bottom:4px;
+    letter-spacing:-1px;
+  }
+  .hero-stat span { font-size:12px; color:var(--text-3); }
+
+  .hero-visual {
+    position:relative; height:480px;
+    display:grid; place-items:center;
+  }
+  .hero-orbit {
+    position:absolute; inset:0;
+    border:1px solid var(--border);
+    border-radius:50%; opacity:.5;
+    animation:rotate 30s linear infinite;
+  }
+  .hero-orbit.orbit-2 {
+    inset:60px; animation-duration:20s; animation-direction:reverse;
+    border-color:rgba(201,169,106,.2);
+  }
+  .hero-orbit.orbit-3 {
+    inset:120px; animation-duration:15s;
+    border-style:dashed;
+  }
+  @keyframes rotate { to { transform:rotate(360deg); } }
+  .hero-core {
+    width:220px; height:220px; border-radius:50%;
+    background:var(--gold-grad);
+    display:grid; place-items:center;
+    font-size:90px;
+    box-shadow:
+      0 0 60px rgba(201,169,106,.3),
+      inset 0 0 40px rgba(255,255,255,.3);
+    position:relative; z-index:2;
+    animation:float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+  .orbit-dot {
+    position:absolute; width:14px; height:14px;
+    border-radius:50%; background:var(--gold);
+    box-shadow:0 0 20px var(--gold);
+  }
+  .orbit-dot.d1 { top:0; left:50%; transform:translateX(-50%); }
+  .orbit-dot.d2 { bottom:0; left:50%; transform:translateX(-50%); }
+  .orbit-dot.d3 { top:50%; right:0; transform:translateY(-50%); }
+  .orbit-dot.d4 { top:50%; left:0; transform:translateY(-50%); }
+
+  /* ===== PARTNERS ===== */
+  .partners {
+    padding:40px 0; border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border); background:var(--bg-2);
+  }
+  .partners-inner {
+    display:flex; justify-content:space-between; align-items:center;
+    gap:40px; flex-wrap:wrap;
+  }
+  .partners-label {
+    font-size:12px; color:var(--text-3);
+    letter-spacing:3px; text-transform:uppercase;
+    font-weight:600; flex-shrink:0;
+  }
+  .partners-list {
+    display:flex; gap:50px; flex-wrap:wrap;
+    flex:1; justify-content:flex-end;
+  }
+  .partner-logo {
+    font-size:20px; font-weight:800; color:var(--text-3);
+    letter-spacing:2px; transition:.3s; cursor:pointer;
+    opacity:.6;
+  }
+  .partner-logo:hover { color:var(--gold); opacity:1; }
+
+  /* ===== ABOUT ===== */
+  .about { padding:120px 0; background:var(--bg); }
+  .about-grid {
+    display:grid; grid-template-columns:1fr 1.1fr;
+    gap:80px; align-items:center;
+  }
+  .about-visual { position:relative; }
+  .about-img {
+    height:500px; border-radius:20px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(201,169,106,.3), transparent 60%),
+      linear-gradient(135deg, #0e1520, #1a2233);
+    border:1px solid var(--border);
+    display:grid; place-items:center;
+    font-size:180px;
+    position:relative; overflow:hidden;
+  }
+  .about-img::after {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(201,169,106,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,106,.06) 1px, transparent 1px);
+    background-size:30px 30px;
+  }
+  .about-badge {
+    position:absolute; bottom:-30px; left:-30px;
+    background:var(--card); border:1px solid var(--border-hover);
+    border-radius:16px; padding:24px 30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    z-index:2;
+  }
+  .about-badge b {
+    display:block; font-size:36px; font-weight:900;
+    color:var(--gold); line-height:1;
+  }
+  .about-badge span {
+    font-size:12px; color:var(--text-2);
+    display:block; margin-top:6px;
+  }
+
+  .about h2 {
+    font-size:40px; font-weight:800;
+    line-height:1.35; margin-bottom:24px;
+    letter-spacing:-1px;
+  }
+  .about p {
+    color:var(--text-2); font-size:16px;
+    line-height:2; margin-bottom:20px;
+  }
+  .about-points {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:16px; margin-top:32px;
+  }
+  .about-point {
+    display:flex; gap:12px; align-items:flex-start;
+    padding:16px; border-radius:12px;
+    background:var(--card); border:1px solid var(--border);
+    transition:.3s;
+  }
+  .about-point:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-3px);
+  }
+  .about-point .check {
+    width:26px; height:26px; border-radius:8px;
+    background:var(--gold-grad);
+    display:grid; place-items:center;
+    color:var(--bg); font-size:14px; font-weight:900;
+    flex-shrink:0;
+  }
+  .about-point span { font-size:14px; font-weight:500; }
+
+  /* ===== VALUES ===== */
+  .values { padding:80px 0; background:var(--bg-2); }
+  .values-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .value-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:40px 32px;
+    transition:.4s; position:relative; overflow:hidden;
+  }
+  .value-card::before {
+    content:''; position:absolute; top:0; right:0;
+    width:100%; height:2px; background:var(--gold-grad);
+    transform:scaleX(0); transform-origin:right;
+    transition:.5s;
+  }
+  .value-card:hover {
+    transform:translateY(-8px);
+    border-color:var(--border-hover);
+    box-shadow:0 25px 50px rgba(0,0,0,.4);
+  }
+  .value-card:hover::before { transform:scaleX(1); }
+  .value-num {
+    font-size:48px; font-weight:900; color:var(--gold);
+    opacity:.3; line-height:1; margin-bottom:16px;
+    letter-spacing:-2px;
+  }
+  .value-card h3 {
+    font-size:20px; font-weight:700;
+    margin-bottom:12px; color:var(--text);
+  }
+  .value-card p {
+    font-size:14px; color:var(--text-2); line-height:1.9;
+  }
+
+  /* ===== SERVICES ===== */
+  .services { padding:120px 0; background:var(--bg); }
+  .services-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .service-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:44px 32px;
+    transition:.4s; position:relative; overflow:hidden;
+    cursor:pointer;
+  }
+  .service-card::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:100%; height:3px; background:var(--gold-grad);
+    transform:scaleX(0); transform-origin:right;
+    transition:.5s;
+  }
+  .service-card:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-8px);
+    background:var(--card-2);
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+  }
+  .service-card:hover::after { transform:scaleX(1); }
+  .service-icon {
+    width:68px; height:68px; border-radius:16px;
+    background:linear-gradient(135deg,rgba(201,169,106,.15),rgba(201,169,106,.05));
+    border:1px solid rgba(201,169,106,.2);
+    display:grid; place-items:center;
+    font-size:32px; margin-bottom:28px;
+    transition:.4s;
+  }
+  .service-card:hover .service-icon {
+    background:var(--gold-grad);
+    transform:rotate(-6deg) scale(1.05);
+  }
+  .service-num {
+    position:absolute; top:24px; left:32px;
+    font-size:44px; font-weight:900; color:var(--gold);
+    opacity:.08; line-height:1;
+    letter-spacing:-2px;
+  }
+  .service-card h3 {
+    font-size:22px; font-weight:700;
+    margin-bottom:14px; letter-spacing:-.5px;
+  }
+  .service-card p {
+    font-size:14px; color:var(--text-2);
+    line-height:1.9; margin-bottom:24px;
+  }
+  .service-link {
+    color:var(--gold); font-size:13px;
+    font-weight:600; display:inline-flex;
+    align-items:center; gap:8px;
+    transition:.3s;
+  }
+  .service-card:hover .service-link { gap:14px; }
+
+  /* ===== PROCESS ===== */
+  .process { padding:120px 0; background:var(--bg-2); position:relative; }
+  .process-timeline {
+    position:relative; max-width:900px; margin:0 auto;
+    padding:40px 0;
+  }
+  .process-timeline::before {
+    content:''; position:absolute; top:0; bottom:0;
+    right:40px; width:2px;
+    background:linear-gradient(to bottom,
+      transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+    opacity:.3;
+  }
+  .process-step {
+    position:relative; padding-right:110px;
+    margin-bottom:50px;
+  }
+  .process-step:last-child { margin-bottom:0; }
+  .process-dot {
+    position:absolute; top:10px; right:20px;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--card); border:2px solid var(--gold);
+    display:grid; place-items:center;
+    font-size:15px; font-weight:900; color:var(--gold);
+    z-index:2; transition:.3s;
+    box-shadow:0 0 0 8px var(--bg-2);
+  }
+  .process-step:hover .process-dot {
+    background:var(--gold-grad); color:var(--bg);
+    transform:scale(1.1);
+    box-shadow:0 0 0 8px var(--bg-2), 0 0 30px var(--gold);
+  }
+  .process-content {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:16px; padding:28px 32px;
+    transition:.3s;
+  }
+  .process-step:hover .process-content {
+    border-color:var(--border-hover);
+    transform:translateX(-8px);
+  }
+  .process-content h3 {
+    font-size:20px; font-weight:700;
+    margin-bottom:10px;
+  }
+  .process-content p {
+    font-size:14px; color:var(--text-2); line-height:1.9;
+  }
+
+  /* ===== WHY US ===== */
+  .why-us { padding:120px 0; background:var(--bg); }
+  .why-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:80px; align-items:center;
+  }
+  .why-visual {
+    position:relative; height:500px;
+  }
+  .why-shape {
+    position:absolute; border-radius:24px;
+    background:linear-gradient(135deg, #0e1520, #1a2233);
+    border:1px solid var(--border);
+    display:grid; place-items:center;
+    font-size:60px;
+    transition:.5s;
+  }
+  .why-shape:nth-child(1) {
+    top:0; right:0; width:60%; height:55%;
+    border-color:rgba(201,169,106,.3);
+  }
+  .why-shape:nth-child(2) {
+    bottom:0; left:0; width:55%; height:55%;
+    border-color:rgba(34,211,238,.25);
+  }
+  .why-shape:nth-child(3) {
+    top:30%; left:5%; width:40%; height:40%;
+    background:var(--gold-grad);
+    color:var(--bg); z-index:2;
+    box-shadow:0 20px 60px rgba(201,169,106,.3);
+  }
+  .why-shape:hover { transform:scale(1.05); }
+  .why-content h2 {
+    font-size:40px; font-weight:800;
+    line-height:1.35; margin-bottom:24px;
+    letter-spacing:-1px;
+  }
+  .why-content > p {
+    font-size:16px; color:var(--text-2);
+    line-height:2; margin-bottom:36px;
+  }
+  .why-features {
+    display:flex; flex-direction:column; gap:20px;
+  }
+  .why-feature {
+    display:flex; gap:20px; align-items:flex-start;
+    padding:20px 0; border-bottom:1px solid var(--border);
+  }
+  .why-feature:last-child { border-bottom:none; }
+  .why-icon {
+    width:48px; height:48px; border-radius:12px;
+    background:rgba(201,169,106,.1);
+    border:1px solid rgba(201,169,106,.25);
+    display:grid; place-items:center;
+    font-size:20px; flex-shrink:0;
+    color:var(--gold);
+  }
+  .why-feature h4 {
+    font-size:16px; font-weight:700; margin-bottom:4px;
+  }
+  .why-feature p {
+    font-size:13px; color:var(--text-2); line-height:1.7;
+  }
+
+  /* ===== PORTFOLIO ===== */
+  .portfolio { padding:120px 0; background:var(--bg-2); }
+  .portfolio-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
+  }
+  .portfolio-card {
+    border-radius:20px; overflow:hidden;
+    background:var(--card); border:1px solid var(--border);
+    transition:.4s; cursor:pointer;
+    position:relative;
+  }
+  .portfolio-card:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-8px);
+    box-shadow:0 30px 60px rgba(0,0,0,.5);
+  }
+  .portfolio-img {
+    height:280px; display:grid; place-items:center;
+    font-size:100px; position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, #0e1520, #1a2233);
+  }
+  .portfolio-img::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(201,169,106,.25), transparent 50%);
+    transition:.5s;
+  }
+  .portfolio-card:hover .portfolio-img::before {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(201,169,106,.4), transparent 50%);
+    transform:scale(1.2);
+  }
+  .portfolio-tag {
+    position:absolute; top:16px; right:16px;
+    background:rgba(5,8,15,.7);
+    border:1px solid var(--border-hover);
+    color:var(--gold);
+    padding:6px 14px; border-radius:20px;
+    font-size:11px; font-weight:700;
+    backdrop-filter:blur(10px);
+    z-index:2;
+  }
+  .portfolio-body {
+    padding:24px 28px 28px;
+    position:relative; z-index:2;
+  }
+  .portfolio-body h3 {
+    font-size:20px; font-weight:700;
+    margin-bottom:8px;
+  }
+  .portfolio-body p {
+    font-size:13px; color:var(--text-2);
+    line-height:1.8; margin-bottom:16px;
+  }
+  .portfolio-meta {
+    display:flex; justify-content:space-between;
+    align-items:center;
+    padding-top:16px; border-top:1px solid var(--border);
+  }
+  .portfolio-meta span {
+    font-size:12px; color:var(--text-3);
+  }
+  .portfolio-meta .arrow {
+    color:var(--gold); font-size:16px;
+    transition:.3s;
+  }
+  .portfolio-card:hover .arrow { transform:translateX(-6px); }
+
+  /* ===== STATS ===== */
+  .stats-section {
+    padding:100px 0; background:var(--bg);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    position:relative; overflow:hidden;
+  }
+  .stats-section::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,169,106,.08), transparent 60%);
+  }
+  .stats-grid {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:24px; position:relative; z-index:2;
+  }
+  .stat-card {
+    text-align:center; padding:40px 20px;
+    border-right:1px solid var(--border);
+  }
+  .stat-card:first-child { border-right:none; }
+  .stat-icon {
+    font-size:36px; margin-bottom:16px;
+    display:block;
+  }
+  .stat-num {
+    font-size:52px; font-weight:900;
+    color:var(--gold); line-height:1;
+    letter-spacing:-2px; margin-bottom:8px;
+  }
+  .stat-label {
+    font-size:13px; color:var(--text-2);
+    font-weight:500;
+  }
+
+  /* ===== TEAM ===== */
+  .team { padding:120px 0; background:var(--bg-2); }
+  .team-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  .team-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; overflow:hidden;
+    transition:.4s; cursor:pointer;
+  }
+  .team-card:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-8px);
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+  }
+  .team-img {
+    height:280px; display:grid; place-items:center;
+    font-size:100px; position:relative;
+    background:linear-gradient(135deg, #0e1520, #1a2233);
+    overflow:hidden;
+  }
+  .team-img::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 50% 100%, rgba(201,169,106,.3), transparent 60%);
+    transition:.4s;
+  }
+  .team-card:hover .team-img::before {
+    background:
+      radial-gradient(circle at 50% 100%, rgba(201,169,106,.5), transparent 60%);
+  }
+  .team-socials {
+    position:absolute; bottom:16px; left:16px;
+    display:flex; gap:8px; opacity:0;
+    transform:translateY(20px); transition:.4s;
+    z-index:2;
+  }
+  .team-card:hover .team-socials {
+    opacity:1; transform:translateY(0);
+  }
+  .team-socials a {
+    width:36px; height:36px; border-radius:10px;
+    background:rgba(5,8,15,.7); border:1px solid var(--border);
+    color:var(--text); text-decoration:none;
+    display:grid; place-items:center; font-size:14px;
+    backdrop-filter:blur(10px); transition:.3s;
+  }
+  .team-socials a:hover {
+    background:var(--gold); color:var(--bg);
+    border-color:var(--gold);
+  }
+  .team-body {
+    padding:24px;
+    text-align:center;
+  }
+  .team-body h3 {
+    font-size:17px; font-weight:700;
+    margin-bottom:4px;
+  }
+  .team-role {
+    font-size:12px; color:var(--gold);
+    font-weight:600; letter-spacing:.5px;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials { padding:120px 0; background:var(--bg); }
+  .testi-wrap {
+    display:grid; grid-template-columns:1fr 1.6fr;
+    gap:60px; align-items:center;
+  }
+  .testi-nav h2 {
+    font-size:40px; font-weight:800;
+    line-height:1.3; margin-bottom:20px;
+    letter-spacing:-1px;
+  }
+  .testi-nav p {
+    font-size:15px; color:var(--text-2);
+    line-height:1.9; margin-bottom:32px;
+  }
+  .testi-dots {
+    display:flex; gap:12px; margin-top:24px;
+  }
+  .testi-dot {
+    width:32px; height:3px; border-radius:2px;
+    background:var(--border); cursor:pointer;
+    transition:.3s; border:none;
+  }
+  .testi-dot.active {
+    background:var(--gold); width:56px;
+  }
+  .testi-cards { position:relative; }
+  .testi-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:44px;
+    position:relative;
+    display:none;
+  }
+  .testi-card.active { display:block; animation:fadeUp .6s ease; }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  .testi-card::before {
+    content:'"'; position:absolute; top:20px; left:30px;
+    font-size:120px; color:var(--gold); opacity:.15;
+    font-family:Georgia,serif; line-height:1;
+  }
+  .testi-stars {
+    color:var(--gold); font-size:18px;
+    letter-spacing:4px; margin-bottom:20px;
+  }
+  .testi-text {
+    font-size:17px; line-height:2;
+    margin-bottom:32px; color:var(--text);
+    position:relative; z-index:2;
+  }
+  .testi-author {
+    display:flex; align-items:center; gap:16px;
+    padding-top:24px; border-top:1px solid var(--border);
+  }
+  .testi-avatar {
+    width:56px; height:56px; border-radius:50%;
+    background:var(--gold-grad);
+    display:grid; place-items:center;
+    font-size:24px; color:var(--bg);
+    font-weight:900;
+  }
+  .testi-info b {
+    display:block; font-size:15px; font-weight:700;
+    margin-bottom:2px;
+  }
+  .testi-info span {
+    font-size:12px; color:var(--text-3);
+  }
+
+  /* ===== PRICING ===== */
+  .pricing { padding:120px 0; background:var(--bg-2); }
+  .pricing-grid {
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:24px; align-items:stretch;
+  }
+  .price-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:44px 36px;
+    display:flex; flex-direction:column;
+    transition:.4s; position:relative;
+  }
+  .price-card:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-6px);
+  }
+  .price-card.featured {
+    background:linear-gradient(180deg, #121a27, #0e1520);
+    border:1px solid var(--gold);
+    transform:scale(1.05);
+    box-shadow:0 30px 60px rgba(201,169,106,.15);
+  }
+  .price-card.featured:hover { transform:scale(1.05) translateY(-6px); }
+  .price-badge {
+    position:absolute; top:-14px; right:50%;
+    transform:translateX(50%);
+    background:var(--gold-grad); color:var(--bg);
+    padding:6px 20px; border-radius:20px;
+    font-size:11px; font-weight:800;
+    letter-spacing:1px;
+  }
+  .price-name {
+    font-size:14px; font-weight:600;
+    color:var(--gold); letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:12px;
+  }
+  .price-desc {
+    font-size:13px; color:var(--text-2);
+    margin-bottom:28px; line-height:1.7;
+  }
+  .price-amount {
+    display:flex; align-items:baseline; gap:6px;
+    margin-bottom:32px; padding-bottom:32px;
+    border-bottom:1px solid var(--border);
+  }
+  .price-amount b {
+    font-size:42px; font-weight:900;
+    color:var(--text); letter-spacing:-2px;
+  }
+  .price-amount span {
+    font-size:13px; color:var(--text-3);
+  }
+  .price-features {
+    list-style:none; flex:1;
+    display:flex; flex-direction:column;
+    gap:14px; margin-bottom:32px;
+  }
+  .price-features li {
+    font-size:13px; color:var(--text-2);
+    display:flex; align-items:center; gap:10px;
+  }
+  .price-features li::before {
+    content:'✓'; color:var(--gold);
+    font-weight:900; font-size:14px;
+    width:20px; height:20px; border-radius:50%;
+    background:rgba(201,169,106,.12);
+    display:grid; place-items:center;
+    flex-shrink:0;
+  }
+  .price-features li.disabled {
+    color:var(--text-3); opacity:.6;
+  }
+  .price-features li.disabled::before {
+    content:'✕'; color:var(--text-3);
+    background:rgba(255,255,255,.03);
+  }
+  .price-card .btn { width:100%; justify-content:center; }
+
+  /* ===== FAQ ===== */
+  .faq { padding:120px 0; background:var(--bg); }
+  .faq-wrap {
+    display:grid; grid-template-columns:1fr 1.3fr;
+    gap:80px; align-items:start;
+  }
+  .faq-content h2 {
+    font-size:40px; font-weight:800;
+    line-height:1.3; margin-bottom:20px;
+    letter-spacing:-1px;
+  }
+  .faq-content p {
+    font-size:15px; color:var(--text-2);
+    line-height:1.9; margin-bottom:32px;
+  }
+  .faq-list { display:flex; flex-direction:column; gap:12px; }
+  .faq-item {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:14px; overflow:hidden;
+    transition:.3s;
+  }
+  .faq-item.open {
+    border-color:var(--border-hover);
+    background:var(--card-2);
+  }
+  .faq-question {
+    width:100%; padding:22px 26px;
+    background:none; border:none; cursor:pointer;
+    display:flex; justify-content:space-between;
+    align-items:center; gap:16px;
+    font-family:inherit; font-size:15px;
+    font-weight:600; color:var(--text);
+    text-align:right; transition:.3s;
+  }
+  .faq-question:hover { color:var(--gold); }
+  .faq-toggle {
+    width:32px; height:32px; border-radius:8px;
+    background:rgba(201,169,106,.1);
+    border:1px solid rgba(201,169,106,.2);
+    display:grid; place-items:center;
+    color:var(--gold); font-size:18px;
+    transition:.3s; flex-shrink:0;
+  }
+  .faq-item.open .faq-toggle {
+    background:var(--gold); color:var(--bg);
+    transform:rotate(45deg);
+  }
+  .faq-answer {
+    max-height:0; overflow:hidden;
+    transition:max-height .4s ease, padding .3s ease;
+    padding:0 26px;
+  }
+  .faq-item.open .faq-answer {
+    max-height:300px; padding:0 26px 22px;
+  }
+  .faq-answer p {
+    font-size:14px; color:var(--text-2);
+    line-height:1.9; border-top:1px solid var(--border);
+    padding-top:18px;
+  }
+
+  /* ===== BLOG ===== */
+  .blog { padding:120px 0; background:var(--bg-2); }
+  .blog-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .blog-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; overflow:hidden;
+    transition:.4s; cursor:pointer;
+    display:flex; flex-direction:column;
+  }
+  .blog-card:hover {
+    border-color:var(--border-hover);
+    transform:translateY(-8px);
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+  }
+  .blog-img {
+    height:220px; display:grid; place-items:center;
+    font-size:80px; position:relative;
+    background:linear-gradient(135deg, #0e1520, #1a2233);
+    overflow:hidden;
+  }
+  .blog-img::after {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 100%, rgba(201,169,106,.2), transparent 60%);
+    transition:.4s;
+  }
+  .blog-card:hover .blog-img::after {
+    background:radial-gradient(circle at 50% 100%, rgba(201,169,106,.35), transparent 60%);
+  }
+  .blog-cat {
+    position:absolute; top:16px; right:16px;
+    background:rgba(5,8,15,.8);
+    border:1px solid var(--border-hover);
+    color:var(--gold);
+    padding:5px 12px; border-radius:16px;
+    font-size:11px; font-weight:700;
+    backdrop-filter:blur(10px);
+    z-index:2;
+  }
+  .blog-body {
+    padding:28px; flex:1;
+    display:flex; flex-direction:column;
+  }
+  .blog-meta {
+    display:flex; gap:16px; align-items:center;
+    font-size:12px; color:var(--text-3);
+    margin-bottom:14px;
+  }
+  .blog-body h3 {
+    font-size:18px; font-weight:700;
+    line-height:1.5; margin-bottom:14px;
+    transition:.3s;
+  }
+  .blog-card:hover .blog-body h3 { color:var(--gold); }
+  .blog-body p {
+    font-size:13px; color:var(--text-2);
+    line-height:1.8; margin-bottom:20px; flex:1;
+  }
+  .blog-link {
+    color:var(--gold); font-size:13px;
+    font-weight:600; display:inline-flex;
+    align-items:center; gap:8px;
+    transition:.3s;
+  }
+  .blog-card:hover .blog-link { gap:14px; }
+
+  /* ===== CTA ===== */
+  .cta-section { padding:100px 0; background:var(--bg); }
+  .cta-inner {
+    background:
+      radial-gradient(circle at 20% 50%, rgba(201,169,106,.15), transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(34,211,238,.08), transparent 50%),
+      linear-gradient(135deg, #0e1520, #1a2233);
+    border:1px solid var(--border-hover);
+    border-radius:28px; padding:80px 60px;
+    text-align:center; position:relative;
+    overflow:hidden;
+  }
+  .cta-inner::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(201,169,106,.15) 1px, transparent 0);
+    background-size:40px 40px;
+    opacity:.5;
+    mask-image:radial-gradient(circle at center, black 20%, transparent 70%);
+    -webkit-mask-image:radial-gradient(circle at center, black 20%, transparent 70%);
+  }
+  .cta-inner > * { position:relative; z-index:2; }
+  .cta-label {
+    font-size:12px; color:var(--gold);
+    letter-spacing:3px; font-weight:700;
+    margin-bottom:20px; text-transform:uppercase;
+  }
+  .cta-inner h2 {
+    font-size:48px; font-weight:900;
+    line-height:1.25; margin-bottom:20px;
+    letter-spacing:-1.5px;
+    max-width:800px; margin-left:auto; margin-right:auto;
+  }
+  .cta-inner p {
+    font-size:16px; color:var(--text-2);
+    line-height:1.9; max-width:600px;
+    margin:0 auto 36px;
+  }
+  .cta-actions {
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background:var(--bg-2);
+    border-top:1px solid var(--border);
+    padding:80px 0 0;
+  }
+  .footer-main {
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+    gap:60px; padding-bottom:60px;
+    border-bottom:1px solid var(--border);
+  }
+  .footer-brand p {
+    font-size:14px; color:var(--text-2);
+    line-height:1.9; margin:20px 0 24px;
+  }
+  .footer-socials { display:flex; gap:10px; }
+  .footer-socials a {
+    width:40px; height:40px; border-radius:10px;
+    background:var(--card); border:1px solid var(--border);
+    display:grid; place-items:center;
+    color:var(--text-2); text-decoration:none;
+    font-size:15px; transition:.3s;
+  }
+  .footer-socials a:hover {
+    background:var(--gold); color:var(--bg);
+    border-color:var(--gold);
+    transform:translateY(-4px);
+  }
+  .footer-col h4 {
+    font-size:14px; font-weight:700;
+    margin-bottom:24px; color:var(--text);
+    letter-spacing:.5px;
+    position:relative; padding-bottom:14px;
+  }
+  .footer-col h4::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:28px; height:2px;
+    background:var(--gold-grad);
+  }
+  .footer-col a {
+    display:block; color:var(--text-2);
+    text-decoration:none; font-size:13px;
+    padding:8px 0; transition:.3s;
+  }
+  .footer-col a:hover {
+    color:var(--gold); padding-right:6px;
+  }
+  .footer-contact-item {
+    display:flex; gap:12px; align-items:flex-start;
+    margin-bottom:16px; font-size:13px;
+    color:var(--text-2);
+  }
+  .footer-contact-item .fi-icon {
+    width:36px; height:36px; border-radius:10px;
+    background:rgba(201,169,106,.1);
+    border:1px solid rgba(201,169,106,.2);
+    display:grid; place-items:center;
+    color:var(--gold); font-size:14px;
+    flex-shrink:0;
+  }
+  .footer-contact-item a {
+    color:var(--text-2); text-decoration:none;
+    transition:.3s; padding:0;
+  }
+  .footer-contact-item a:hover { color:var(--gold); padding:0; }
+
+  .footer-bottom {
+    padding:30px 0;
+    display:flex; justify-content:space-between;
+    align-items:center; gap:20px;
+    flex-wrap:wrap;
+  }
+  .footer-copy {
+    font-size:12px; color:var(--text-3);
+  }
+  .footer-copy b { color:var(--gold); font-weight:700; }
+  .footer-dev {
+    display:flex; align-items:center; gap:10px;
+    font-size:12px; color:var(--text-3);
+    padding:10px 18px;
+    background:rgba(201,169,106,.05);
+    border:1px solid rgba(201,169,106,.15);
+    border-radius:30px;
+  }
+  .footer-dev .dot {
+    width:6px; height:6px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 10px var(--green);
+    animation:pulse 2s infinite;
+  }
+  .footer-dev b {
+    color:var(--gold); font-weight:700;
+  }
+
+  /* ===== BACK TO TOP ===== */
+  .back-to-top {
+    position:fixed; bottom:30px; left:30px;
+    width:50px; height:50px; border-radius:14px;
+    background:var(--gold-grad); color:var(--bg);
+    border:none; cursor:pointer; font-size:20px;
+    display:grid; place-items:center;
+    opacity:0; visibility:hidden;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(201,169,106,.4);
+    z-index:900;
+  }
+  .back-to-top.show { opacity:1; visibility:visible; }
+  .back-to-top:hover { transform:translateY(-4px); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1100px) {
+    .hero-inner, .about-grid, .why-grid, .testi-wrap, .faq-wrap {
+      grid-template-columns:1fr; gap:60px;
+    }
+    .hero-visual { height:360px; }
+    .hero-core { width:160px; height:160px; font-size:70px; }
+    .services-grid, .pricing-grid, .blog-grid {
+      grid-template-columns:repeat(2,1fr);
+    }
+    .team-grid { grid-template-columns:repeat(2,1fr); }
+    .stats-grid { grid-template-columns:repeat(2,1fr); }
+    .stat-card:nth-child(2) { border-right:none; }
+    .portfolio-grid { grid-template-columns:1fr; }
+    .footer-main { grid-template-columns:1fr 1fr; }
+    .top-contact { gap:14px; font-size:11px; }
+    .top-socials { display:none; }
+    .nav-menu { display:none; }
+    .hero h1 { font-size:40px; }
+    .section-head h2, .about h2, .why-content h2,
+    .faq-content h2, .testi-nav h2 { font-size:32px; }
+  }
+  @media (max-width:768px) {
+    .container { padding:0 20px; }
+    nav { padding:14px 20px; }
+    .hero { padding:60px 0 80px; }
+    .hero h1 { font-size:32px; letter-spacing:-.5px; }
+    .hero-stats { gap:20px; flex-wrap:wrap; }
+    .hero-stat b { font-size:24px; }
+    .services-grid, .pricing-grid,
+    .blog-grid, .team-grid, .values-grid {
+      grid-template-columns:1fr;
+    }
+    .about-points { grid-template-columns:1fr; }
+    .price-card.featured { transform:scale(1); }
+    .price-card.featured:hover { transform:translateY(-6px); }
+    .stat-num { font-size:38px; }
+    .process-timeline::before { right:20px; }
+    .process-step { padding-right:80px; }
+    .process-dot { right:0; }
+    .cta-inner { padding:50px 28px; }
+    .cta-inner h2 { font-size:28px; }
+    .footer-main { grid-template-columns:1fr; gap:40px; }
+    .footer-bottom { flex-direction:column; text-align:center; }
+    .about-img { height:320px; }
+    .about-badge { left:-10px; bottom:-20px; padding:18px 22px; }
+    .about-badge b { font-size:26px; }
+    .top-bar { display:none; }
+    .partners-list { gap:24px; justify-content:center; }
+    .partner-logo { font-size:16px; }
+    .back-to-top { bottom:20px; left:20px; width:44px; height:44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-contact">
+        <a href="tel:09043758565">📞 ۰۹۰۴۳۷۵۸۵۶۵</a>
+        <a href="mailto:parsa.shoajei.team@gmail.com">✉️ parsa.shoajei.team@gmail.com</a>
+      </div>
+      <div class="top-socials">
+        <a href="#" title="لینکدین">in</a>
+        <a href="#" title="توییتر">X</a>
+        <a href="#" title="اینستاگرام">IG</a>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-mark">A</div>
+      <div>
+        <div>AURUM</div>
+        <div class="logo-sub">CONSULTING GROUP</div>
+      </div>
+    </a>
+    <div class="nav-menu">
+      <a href="#" class="active">خانه</a>
+      <a href="#about">درباره ما</a>
+      <a href="#services">خدمات</a>
+      <a href="#portfolio">نمونه‌کارها</a>
+      <a href="#team">تیم</a>
+      <a href="#blog">مقالات</a>
+      <a href="#contact">تماس</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-gold">مشاوره رایگان</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-badge">
+          <span class="dot"></span>
+          پیشرو در مشاوره و تحول دیجیتال از ۱۳۹۵
+        </span>
+        <h1>
+          آینده کسب‌وکار شما
+          <span class="line-2">با <span class="grad-text">راهکارهای هوشمند</span> ما</span>
+        </h1>
+        <p class="hero-sub">
+          AURUM با تکیه بر تیمی از متخصصان مجرب، راهکارهای جامع و نوآورانه‌ای برای رشد و تحول دیجیتال سازمان شما ارائه می‌دهد.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-gold">مشاهده خدمات ←</a>
+          <a href="#about" class="btn btn-outline">درباره ما</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <b>+۲۵۰</b>
+            <span>پروژه موفق</span>
+          </div>
+          <div class="hero-stat">
+            <b>+۱۲۰</b>
+            <span>مشتری فعال</span>
+          </div>
+          <div class="hero-stat">
+            <b>+۸</b>
+            <span>سال تجربه</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orbit"></div>
+        <div class="hero-orbit orbit-2"></div>
+        <div class="hero-orbit orbit-3"></div>
+        <div class="orbit-dot d1"></div>
+        <div class="orbit-dot d2"></div>
+        <div class="orbit-dot d3"></div>
+        <div class="orbit-dot d4"></div>
+        <div class="hero-core">◆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section class="partners">
+  <div class="container">
+    <div class="partners-inner">
+      <div class="partners-label">مورد اعتماد برندهای برتر</div>
+      <div class="partners-list">
+        <span class="partner-logo">TECHNO</span>
+        <span class="partner-logo">NOVA</span>
+        <span class="partner-logo">VERTEX</span>
+        <span class="partner-logo">QUANTUM</span>
+        <span class="partner-logo">AXIS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img">🏛️</div>
+        <div class="about-badge">
+          <b>+۸</b>
+          <span>سال تجربه درخشان</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">درباره AURUM</div>
+        <h2>شریک راهبردی شما در مسیر تحول دیجیتال</h2>
+        <p>
+          AURUM یک شرکت مشاوره و فناوری اطلاعات است که با تکیه بر دانش تخصصی، تجربه عملی و رویکرد نوآورانه، در کنار سازمان‌ها برای طراحی و پیاده‌سازی راهکارهای دیجیتال قرار می‌گیرد.
+        </p>
+        <p>
+          ما باور داریم که موفقیت در دنیای امروز، نیازمند هم‌آمیزی استراتژی هوشمند، فناوری پیشرفته و تیم متخصص است. به همین دلیل خدمات جامع و یکپارچه‌ای در حوزه‌های مختلف ارائه می‌دهیم.
+        </p>
+        <div class="about-points">
+          <div class="about-point"><div class="check">✓</div><span>تیم متخصص و مجرب</span></div>
+          <div class="about-point"><div class="check">✓</div><span>رویکرد مشتری‌محور</span></div>
+          <div class="about-point"><div class="check">✓</div><span>راهکارهای سفارشی</span></div>
+          <div class="about-point"><div class="check">✓</div><span>پشتیبانی بلندمدت</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUES ===== -->
+<section class="values">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">ارزش‌های ما</div>
+      <h2>اصولی که ما را <span class="grad-text">متفاوت</span> می‌کند</h2>
+      <p>سه ستون اصلی که در هر پروژه و تصمیمی، راهنمای ما هستند.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">۰۱</div>
+        <h3>نوآوری مستمر</h3>
+        <p>همیشه در حال یادگیری و پذیرش فناوری‌های نوین هستیم تا بهترین راهکارها را به مشتریان ارائه دهیم.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">۰۲</div>
+        <h3>تعهد و صداقت</h3>
+        <p>شفافیت کامل در قرارداد، زمان‌بندی و هزینه‌ها، اساس اعتماد بلندمدت با مشتریان ما است.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">۰۳</div>
+        <h3>کیفیت بی‌مصالحه</h3>
+        <p>در ارائه خدمات و محصولات، همواره بالاترین استانداردهای کیفیت را رعایت می‌کنیم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">خدمات ما</div>
+      <h2>راهکارهای <span class="grad-text">جامع</span> برای رشد کسب‌وکار</h2>
+      <p>مجموعه‌ای از خدمات تخصصی که به صورت یکپارچه، نیازهای سازمان شما را پوشش می‌دهد.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">۰۱</div>
+        <div class="service-icon">🎯</div>
+        <h3>مشاوره استراتژیک</h3>
+        <p>تحلیل جامع وضعیت کسب‌وکار و ارائه نقشه راه استراتژیک برای دستیابی به اهداف بلندمدت سازمان.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">۰۲</div>
+        <div class="service-icon">🚀</div>
+        <h3>تحول دیجیتال</h3>
+        <p>همراهی کامل در مسیر دیجیتالی‌سازی فرآیندها، از ارزیابی اولیه تا پیاده‌سازی نهایی.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">۰۳</div>
+        <div class="service-icon">💻</div>
+        <h3>توسعه نرم‌افزار</h3>
+        <p>طراحی و توسعه اپلیکیشن‌های وب و موبایل سفارشی با جدیدترین تکنولوژی‌های روز دنیا.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">۰۴</div>
+        <div class="service-icon">📊</div>
+        <h3>تحلیل داده</h3>
+        <p>استخراج بینش‌های ارزشمند از داده‌های سازمان و تبدیل آن‌ها به تصمیمات هوشمند.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">۰۵</div>
+        <div class="service-icon">🔐</div>
+        <h3>امنیت سایبری</h3>
+        <p>ارزیابی، پیاده‌سازی و پایش سیستم‌های امنیتی برای محافظت از دارایی‌های دیجیتال سازمان.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">۰۶</div>
+        <div class="service-icon">🛠️</div>
+        <h3>پشتیبانی فنی</h3>
+        <p>پشتیبانی شبانه‌روزی و نگهداری سیستم‌ها با SLA تضمین‌شده و تیم متخصص.</p>
+        <span class="service-link">اطلاعات بیشتر ←</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">فرآیند همکاری</div>
+      <h2>مسیر <span class="grad-text">شفاف</span> از ایده تا اجرا</h2>
+      <p>فرآیند کاری ما در قالب ۵ مرحله شفاف و منظم انجام می‌شود.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="process-dot">۰۱</div>
+        <div class="process-content">
+          <h3>جلسه مشاوره و شناخت نیاز</h3>
+          <p>در جلسه اولیه، نیازها و اهداف کسب‌وکار شما را به طور کامل بررسی و تحلیل می‌کنیم.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-dot">۰۲</div>
+        <div class="process-content">
+          <h3>طراحی راهکار و پیشنهاد</h3>
+          <p>بر اساس تحلیل‌ها، راهکار سفارشی همراه با زمان‌بندی و هزینه دقیق ارائه می‌دهیم.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-dot">۰۳</div>
+        <div class="process-content">
+          <h3>اجرا و پیاده‌سازی</h3>
+          <p>با تیم متخصص خود، راهکار مورد توافق را با بالاترین کیفیت پیاده‌سازی می‌کنیم.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-dot">۰۴</div>
+        <div class="process-content">
+          <h3>آزمون و تحویل</h3>
+          <p>پس از انجام تست‌های کامل، پروژه را با مستندات فنی تحویل می‌دهیم.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-dot">۰۵</div>
+        <div class="process-content">
+          <h3>پشتیبانی و توسعه</h3>
+          <p>پس از تحویل، در کنار شما هستیم تا سیستم به بهترین شکل کار کند و رشد یابد.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual reveal">
+        <div class="why-shape">📈</div>
+        <div class="why-shape">🎨</div>
+        <div class="why-shape">⭐</div>
+      </div>
+      <div class="why-content reveal">
+        <div class="section-label">چرا AURUM</div>
+        <h2>دلایلی که ما را <span class="grad-text">انتخاب اول</span> می‌کند</h2>
+        <p>ما تنها یک شرکت خدماتی نیستیم؛ شریک راهبردی شما در مسیر رشد و تعالی هستیم.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-icon">🏆</div>
+            <div>
+              <h4>سابقه درخشان</h4>
+              <p>بیش از ۲۵۰ پروژه موفق در صنایع مختلف با رضایت بالای مشتریان.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">👥</div>
+            <div>
+              <h4>تیم متخصص</h4>
+              <p>تیمی از متخصصان با تجربه در حوزه‌های فناوری، طراحی و مشاوره.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">⚡</div>
+            <div>
+              <h4>پاسخگویی سریع</h4>
+              <p>پشتیبانی شبانه‌روزی و پاسخگویی در کمتر از ۴ ساعت کاری.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">🎯</div>
+            <div>
+              <h4>تمرکز بر نتیجه</h4>
+              <p>تمام تلاش ما رسیدن به نتایج قابل اندازه‌گیری برای کسب‌وکار شماست.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">نمونه‌کارها</div>
+      <h2>پروژه‌های <span class="grad-text">منتخب</span> ما</h2>
+      <p>گزیده‌ای از پروژه‌هایی که با افتخار برای مشتریان خود اجرا کرده‌ایم.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img">
+          🏦
+          <span class="portfolio-tag">بانکداری</span>
+        </div>
+        <div class="portfolio-body">
+          <h3>پلتفرم بانکداری دیجیتال</h3>
+          <p>طراحی و پیاده‌سازی سیستم بانکداری آنلاین با پشتیبانی از ۵۰۰ هزار کاربر همزمان.</p>
+          <div class="portfolio-meta">
+            <span>توسعه وب و موبایل</span>
+            <span class="arrow">←</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img">
+          🏢
+          <span class="portfolio-tag">سازمانی</span>
+        </div>
+        <div class="portfolio-body">
+          <h3>سیستم مدیریت منابع انسانی</h3>
+          <p>سامانه جامع HR برای یک هلدینگ با بیش از ۲۰۰۰ پرسنل در سراسر کشور.</p>
+          <div class="portfolio-meta">
+            <span>نرم‌افزار سازمانی</span>
+            <span class="arrow">←</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img">
+          🛒
+          <span class="portfolio-tag">فروشگاهی</span>
+        </div>
+        <div class="portfolio-body">
+          <h3>فروشگاه آنلاین چندفروشندگی</h3>
+          <p>پلتفرم مارکت‌پلیس با پشتیبانی از ۱۰۰۰ فروشنده و درگاه پرداخت امن.</p>
+          <div class="portfolio-meta">
+            <span>تجارت الکترونیک</span>
+            <span class="arrow">←</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-img">
+          📊
+          <span class="portfolio-tag">تحلیل داده</span>
+        </div>
+        <div class="portfolio-body">
+          <h3>داشبورد هوش تجاری</h3>
+          <p>سیستم تحلیل داده بلادرنگ برای یک شرکت بیمه با پردازش روزانه ۵ میلیون رکورد.</p>
+          <div class="portfolio-meta">
+            <span>Data & Analytics</span>
+            <span class="arrow">←</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-num" data-target="250">+۰</div>
+        <div class="stat-label">پروژه موفق</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">😊</div>
+        <div class="stat-num" data-target="120">+۰</div>
+        <div class="stat-label">مشتری راضی</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">👨‍💼</div>
+        <div class="stat-num" data-target="40">+۰</div>
+        <div class="stat-label">متخصص</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🌍</div>
+        <div class="stat-num" data-target="15">+۰</div>
+        <div class="stat-label">استان تحت پوشش</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">تیم ما</div>
+      <h2>متخصصانی که <span class="grad-text">تفاوت</span> می‌سازند</h2>
+      <p>تیمی از متخصصان متعهد که با دانش و تجربه خود، پروژه‌های شما را به سرانجام می‌رسانند.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-img">
+          👨‍💻
+          <div class="team-socials">
+            <a href="#">in</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div class="team-body">
+          <h3>مهندس پارسا شجاعی</h3>
+          <div class="team-role">بنیان‌گذار و مدیر فنی</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-img">
+          👨‍💼
+          <div class="team-socials">
+            <a href="#">in</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div class="team-body">
+          <h3>دکتر سارا محمدی</h3>
+          <div class="team-role">مدیرعامل</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-img">
+          🎨
+          <div class="team-socials">
+            <a href="#">in</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div class="team-body">
+          <h3>مهندس آرش کریمی</h3>
+          <div class="team-role">مدیر طراحی</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-img">
+          📈
+          <div class="team-socials">
+            <a href="#">in</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div class="team-body">
+          <h3>خانم نازنین رضایی</h3>
+          <div class="team-role">مدیر بازاریابی</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testi-wrap">
+      <div class="testi-nav reveal">
+        <div class="section-label">نظرات مشتریان</div>
+        <h2>آنچه مشتریان درباره ما <span class="grad-text">می‌گویند</span></h2>
+        <p>اعتماد و رضایت مشتریان، بزرگ‌ترین سرمایه ما است. این نظرات گواهی بر کیفیت خدمات ماست.</p>
+        <div class="testi-dots">
+          <button class="testi-dot active" data-index="0"></button>
+          <button class="testi-dot" data-index="1"></button>
+          <button class="testi-dot" data-index="2"></button>
+        </div>
+      </div>
+      <div class="testi-cards reveal">
+        <div class="testi-card active">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            همکاری با AURUM یکی از بهترین تصمیمات ما در سال گذشته بود. تیم متخصص و متعهد آن‌ها، پروژه تحول دیجیتال ما را با کیفیت بالا و در زمان مقرر تحویل دادند.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">م</div>
+            <div class="testi-info">
+              <b>محمد احمدی</b>
+              <span>مدیرعامل شرکت فناوری نوآور</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            پشتیبانی فنی AURUM واقعاً بی‌نظیر است. هر زمان به کمک نیاز داشتیم، سریع پاسخ دادند و مشکل را حل کردند. حس امنیت و اعتماد کاملی داریم.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">ف</div>
+            <div class="testi-info">
+              <b>فاطمه کریمی</b>
+              <span>مدیر IT هلدینگ صنعتی</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            کیفیت نرم‌افزاری که AURUM برای ما توسعه داد، فراتر از انتظارات ما بود. مشاوره‌های استراتژیک آن‌ها به رشد واقعی کسب‌وکار ما کمک کرد.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">ر</div>
+            <div class="testi-info">
+              <b>رضا نوری</b>
+              <span>مدیر بازاریابی فروشگاه آنلاین</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">تعرفه خدمات</div>
+      <h2>بسته‌های <span class="grad-text">متنوع</span> برای نیازهای مختلف</h2>
+      <p>بسته متناسب با نیاز کسب‌وکار خود را انتخاب کنید و از خدمات تخصصی ما بهره‌مند شوید.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-name">پایه</div>
+        <div class="price-desc">مناسب کسب‌وکارهای کوچک و نوپا</div>
+        <div class="price-amount">
+          <b>۱۵</b>
+          <span>میلیون تومان / پروژه</span>
+        </div>
+        <ul class="price-features">
+          <li>جلسه مشاوره اولیه</li>
+          <li>طراحی رابط کاربری</li>
+          <li>توسعه تا ۵ صفحه</li>
+          <li>پشتیبانی ۳ ماهه</li>
+          <li class="disabled">تحلیل داده</li>
+          <li class="disabled">پنل مدیریت</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">انتخاب بسته</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">پرطرفدارترین</div>
+        <div class="price-name">حرفه‌ای</div>
+        <div class="price-desc">مناسب کسب‌وکارهای در حال رشد</div>
+        <div class="price-amount">
+          <b>۴۵</b>
+          <span>میلیون تومان / پروژه</span>
+        </div>
+        <ul class="price-features">
+          <li>همه امکانات بسته پایه</li>
+          <li>توسعه نامحدود صفحات</li>
+          <li>پنل مدیریت اختصاصی</li>
+          <li>تحلیل داده پایه</li>
+          <li>پشتیبانی ۱۲ ماهه</li>
+          <li class="disabled">مشاوره اختصاصی</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">انتخاب بسته</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-name">سازمانی</div>
+        <div class="price-desc">مناسب سازمان‌های بزرگ</div>
+        <div class="price-amount">
+          <b>تماس</b>
+          <span>قیمت اختصاصی</span>
+        </div>
+        <ul class="price-features">
+          <li>همه امکانات بسته حرفه‌ای</li>
+          <li>مشاوره استراتژیک اختصاصی</li>
+          <li>تحلیل داده پیشرفته</li>
+          <li>تیم اختصاصی</li>
+          <li>پشتیبانی ۲۴/۷</li>
+          <li>قرارداد SLA اختصاصی</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">تماس با ما</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-content reveal">
+        <div class="section-label">سوالات متداول</div>
+        <h2>پاسخ به <span class="grad-text">پرسش‌های</span> شما</h2>
+        <p>اگر پاسخ سوال خود را پیدا نکردید، تیم پشتیبانی ما آماده پاسخگویی به شماست.</p>
+        <a href="#contact" class="btn btn-gold">تماس با پشتیبانی</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-question">
+            <span>خدمات AURUM شامل چه مواردی است؟</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>خدمات ما شامل مشاوره استراتژیک، تحول دیجیتال، توسعه نرم‌افزار، تحلیل داده، امنیت سایبری و پشتیبانی فنی است. هر یک از این خدمات به صورت مستقل یا یکپارچه قابل ارائه است.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>فرآیند همکاری چگونه است؟</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>فرآیند همکاری ما در ۵ مرحله انجام می‌شود: جلسه مشاوره اولیه، طراحی راهکار، اجرا، آزمون و تحویل، و پشتیبانی بلندمدت. در هر مرحله مستندات کامل به شما تحویل داده می‌شود.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>زمان تحویل پروژه چقدر است؟</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>بستگی به حجم و پیچیدگی پروژه دارد. پروژه‌های کوچک بین ۲ تا ۴ هفته و پروژه‌های سازمانی بزرگ بین ۳ تا ۶ ماه زمان می‌برد. زمان دقیق در قرارداد مشخص می‌شود.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>پشتیبانی بعد از تحویل چگونه است؟</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>بسته به نوع قرارداد، از ۳ ماه تا ۲۴ ماه پشتیبانی ارائه می‌شود. در طول دوره پشتیبانی، تیم ما به صورت شبانه‌روزی آماده رفع مشکلات و ارائه به‌روزرسانی است.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>آیا امکان سفارشی‌سازی خدمات وجود دارد؟</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>بله، تمامی خدمات ما به صورت سفارشی و متناسب با نیازهای خاص هر کسب‌وکار طراحی و ارائه می‌شود. با ما تماس بگیرید تا راهکار اختصاصی خود را دریافت کنید.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">مقالات</div>
+      <h2>آخرین <span class="grad-text">مقالات</span> و اخبار</h2>
+      <p>با جدیدترین مقالات و تحلیل‌های تیم ما در حوزه فناوری و کسب‌وکار همراه باشید.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          💡
+          <span class="blog-cat">تحول دیجیتال</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 ۱۲ آبان ۱۴۰۳</span>
+            <span>⏱ ۵ دقیقه</span>
+          </div>
+          <h3>تحول دیجیتال در سازمان‌های ایرانی: چالش‌ها و راهکارها</h3>
+          <p>بررسی عمیق موانع و فرصت‌های تحول دیجیتال در سازمان‌های ایرانی و ارائه راهکارهای عملی.</p>
+          <span class="blog-link">ادامه مطلب ←</span>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          🤖
+          <span class="blog-cat">هوش مصنوعی</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 ۸ آبان ۱۴۰۳</span>
+            <span>⏱ ۷ دقیقه</span>
+          </div>
+          <h3>نقش هوش مصنوعی در تحول کسب‌وکارهای مدرن</h3>
+          <p>چگونه هوش مصنوعی می‌تواند بهره‌وری و کارایی سازمان شما را به طور چشمگیری افزایش دهد.</p>
+          <span class="blog-link">ادامه مطلب ←</span>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          🔐
+          <span class="blog-cat">امنیت</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 ۳ آبان ۱۴۰۳</span>
+            <span>⏱ ۶ دقیقه</span>
+          </div>
+          <h3>امنیت سایبری: ۷ اشتباه رایج که باید از آن‌ها پرهیز کنید</h3>
+          <p>آشنایی با رایج‌ترین اشتباهات امنیتی سازمان‌ها و راه‌های پیشگیری از آن‌ها.</p>
+          <span class="blog-link">ادامه مطلب ←</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="cta-label">آماده شروع هستید؟</div>
+      <h2>بیایید با هم، آینده کسب‌وکار شما را <span class="grad-text">بسازیم</span></h2>
+      <p>همین حالا با تیم ما تماس بگیرید و یک جلسه مشاوره رایگان دریافت کنید.</p>
+      <div class="cta-actions">
+        <a href="tel:09043758565" class="btn btn-gold">📞 تماس فوری</a>
+        <a href="mailto:parsa.shoajei.team@gmail.com" class="btn btn-outline">✉️ ارسال ایمیل</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-mark">A</div>
+          <div>
+            <div>AURUM</div>
+            <div class="logo-sub">CONSULTING GROUP</div>
+          </div>
+        </a>
+        <p>شرکت مشاوره و فناوری اطلاعات AURUM، شریک راهبردی سازمان‌ها در مسیر تحول دیجیتال و رشد پایدار.</p>
+        <div class="footer-socials">
+          <a href="#" title="لینکدین">in</a>
+          <a href="#" title="توییتر">X</a>
+          <a href="#" title="اینستاگرام">IG</a>
+          <a href="#" title="تلگرام">TG</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>دسترسی سریع</h4>
+        <a href="#">خانه</a>
+        <a href="#about">درباره ما</a>
+        <a href="#services">خدمات</a>
+        <a href="#portfolio">نمونه‌کارها</a>
+        <a href="#team">تیم ما</a>
+      </div>
+      <div class="footer-col">
+        <h4>خدمات</h4>
+        <a href="#">مشاوره استراتژیک</a>
+        <a href="#">تحول دیجیتال</a>
+        <a href="#">توسعه نرم‌افزار</a>
+        <a href="#">تحلیل داده</a>
+        <a href="#">امنیت سایبری</a>
+      </div>
+      <div class="footer-col">
+        <h4>ارتباط با ما</h4>
+        <div class="footer-contact-item">
+          <div class="fi-icon">📧</div>
+          <div>
+            <a href="mailto:parsa.shoajei.team@gmail.com">parsa.shoajei.team@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="fi-icon">📞</div>
+          <div>
+            <a href="tel:09043758565">۰۹۰۴۳۷۵۸۵۶۵</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="fi-icon">👨‍💼</div>
+          <div>مهندس پارسا شجاعی</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © ۱۴۰۳ <b>AURUM</b> — تمامی حقوق محفوظ است
+      </div>
+      <div class="footer-dev">
+        <span class="dot"></span>
+        طراحی و توسعه توسط <b>مهندس پارسا شجاعی</b>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop">↑</button>
+
+<script>
+  // ===== Scroll Progress =====
+  const progressBar = document.getElementById('progressBar');
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+
+    if (scrollTop > 500) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== Reveal on Scroll =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ===== Counter Animation =====
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        animateCounter(el, target);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+  function animateCounter(el, target, duration = 2000) {
+    let start = 0;
+    const startTime = performance.now();
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = '+' + current.toLocaleString('fa-IR');
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // ===== FAQ Accordion =====
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // ===== Testimonials Slider =====
+  const testiDots = document.querySelectorAll('.testi-dot');
+  const testiCards = document.querySelectorAll('.testi-card');
+
+  testiDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.index);
+      testiDots.forEach(d => d.classList.remove('active'));
+      testiCards.forEach(c => c.classList.remove('active'));
+      dot.classList.add('active');
+      testiCards[idx].classList.add('active');
+    });
+  });
+
+  // Auto-rotate testimonials
+  let testiIndex = 0;
+  setInterval(() => {
+    testiIndex = (testiIndex + 1) % testiDots.length;
+    testiDots.forEach(d => d.classList.remove('active'));
+    testiCards.forEach(c => c.classList.remove('active'));
+    testiDots[testiIndex].classList.add('active');
+    testiCards[testiIndex].classList.add('active');
+  }, 8000);
+
+  // ===== Smooth scroll for nav links =====
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
